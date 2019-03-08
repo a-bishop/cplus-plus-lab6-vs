@@ -29,7 +29,7 @@ public:
 	void swapXY();
 	void multiplyX(int factor);
 	void multiplyY(int factor);
-	string toString() const; // return a string in the form "[x,y]" to represent
+	std::string toString() const; // return a string in the form "[x,y]" to represent
 							// the state of the Point instance (for debugging)
 
 };

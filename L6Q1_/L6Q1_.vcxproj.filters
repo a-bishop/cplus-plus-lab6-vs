@@ -29,13 +29,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="M:\cplus-plus-lab6\TestSuite.h">
+    <ClInclude Include="Tetromino.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Point.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Tetromino.h">
+    <ClInclude Include="TestSuite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

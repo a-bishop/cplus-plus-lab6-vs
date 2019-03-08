@@ -149,8 +149,8 @@
     <ClCompile Include="Tetromino.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="M:\cplus-plus-lab6\TestSuite.h" />
     <ClInclude Include="Point.h" />
+    <ClInclude Include="TestSuite.h" />
     <ClInclude Include="Tetromino.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

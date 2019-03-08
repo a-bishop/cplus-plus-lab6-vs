@@ -74,14 +74,11 @@ void Tetromino::setShape(TetShape shape)
 // class that can be used to accomplish a rotation.   
 void Tetromino::rotateCW() 
 {
-	for (int i = 0; i < blockLocs.size(); i++) {
-		Point block = blockLocs[i];
-		Point temp = blockLocs[i];
-		if (block.getX() != 0 && block.getY() != 0) {
-			temp.swapXY();
-			temp.multiplyY(-1);
-			block = temp;
-		}
+	for (int i = 0; i < blockLocs.size(); i++) 
+	
+	{
+		blockLocs[i].swapXY();
+		blockLocs[i].multiplyY(-1);
 	}
 }
 
@@ -109,6 +106,7 @@ void Tetromino::printToConsole()
 			for (int i = 0; i < blockLocs.size(); i++) {
 				if (blockLocs[i].getX() == x && blockLocs[i].getY() == y) {
 					std::cout << "x";
+					found = true;
 					break;
 				}
 			}
@@ -116,5 +114,6 @@ void Tetromino::printToConsole()
 				std::cout << ".";
 			}
 		}
+		std::cout << std::endl;
 	}
 }
