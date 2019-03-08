@@ -7,20 +7,21 @@
 //
 
 #include "Tetromino.h"
+#include "Point.h"
 
 Tetromino::Tetromino() 
 {
-
+	setShape(TetShape::SHAPE_S);
 }
 
-Tetromino::TetColor getColor()
+TetColor Tetromino::getColor()
 {
-
+	return color;
 }
 
-Tetromino::TetShape getShape()
+TetShape Tetromino::getShape()
 {
-
+	return shape;
 }
 
 // set the shape     
@@ -29,7 +30,38 @@ Tetromino::TetShape getShape()
 //  - set the color for the shape
 void Tetromino::setShape(TetShape shape)
 {
+	blockLocs.empty();
+	switch (shape) {
+		case TetShape::SHAPE_S:
+			blockLocs = { Point(0,0), Point(-1,0), Point(0,-1), Point(1,-1) };
+			color = TetColor::RED;
+			break;
+		case TetShape::SHAPE_Z:
+			blockLocs = { Point(0,0), Point(1,0), Point(0,-1), Point(-1,-1) };
+			color = TetColor::GREEN;
+			break;
+		case TetShape::SHAPE_L:
+			blockLocs = { Point(0,0), Point(0,-1), Point(0,1), Point(1,1) };
+			color = TetColor::ORANGE;
+			break;
+		case TetShape::SHAPE_J:
+			blockLocs = { Point(0,0), Point(0,-1), Point(0,1), Point(-1,1) };
+			color = TetColor::BLUE_DARK;
+			break;
+		case TetShape::SHAPE_O:
+			blockLocs = { Point(0,0), Point(0,1), Point(1,1), Point(1,0) };
+			color = TetColor::YELLOW;
+			break;
+		case TetShape::SHAPE_I:
+			blockLocs = { Point(0,0), Point(0,-2), Point(0,-1), Point(0,1) };
+			color = TetColor::BLUE_LIGHT;
+			break;
+		case TetShape::SHAPE_T:
+			blockLocs = { Point(0,0), Point(-1,0), Point(1,0), Point(0,1) };
+			color = TetColor::PURPLE;
+			break;
 
+	}
 }
 
 // rotate the shape 90 degrees around [0,0] (clockwise)     
@@ -41,7 +73,7 @@ void Tetromino::setShape(TetShape shape)
 // class that can be used to accomplish a rotation.   
 void Tetromino::rotateCW() 
 {
-
+	for (int i=0; i<blockLocs.size(); )
 }
 
 // print a grid to display the current shape     

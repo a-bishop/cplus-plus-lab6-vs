@@ -8,8 +8,11 @@
 
 #ifndef TETROMINO_H
 #define TETROMINO_H
+#include "Point.h"
+#include <vector>
+#include <string>
 
-enum class Tetcolor { RED, ORANGE, YELLOW, GREEN, BLUE_LIGHT, BLUE_DARK, PURPLE };
+enum class TetColor { RED, ORANGE, YELLOW, GREEN, BLUE_LIGHT, BLUE_DARK, PURPLE };
 
 enum class TetShape { SHAPE_S, SHAPE_Z, SHAPE_L, SHAPE_J, SHAPE_O, SHAPE_I, SHAPE_T };
 
@@ -17,18 +20,18 @@ class Tetromino {
 
 private:
 	TetColor color;
-	tetShape shape;
+	TetShape shape;
 
 protected:
-	vector<Point> blockLocs;
+	std::vector<Point> blockLocs;
 
 public:
-	Tetromino()
-	TetColor getColor()
-	TetShape getShape()
+	Tetromino();
+	TetColor getColor();
+	TetShape getShape();
 	void setShape(TetShape shape);
-	void rotateCW()
-	void printToConsole()
+	void rotateCW();
+	void printToConsole();
 
 };
 
