@@ -10,7 +10,6 @@
 #define POINT_H
 
 #include <string>
-using namespace std;
 
 class Point {
 
@@ -24,8 +23,8 @@ public:
 	Point(int newX, int newY);
 	int getX() const;
 	int getY() const;
-	void setX(int x);
-	void setY(int y);
+	void setX(int newX);
+	void setY(int newY);
 	void setXY(int x, int y);
 	void swapXY();
 	void multiplyX(int factor);
