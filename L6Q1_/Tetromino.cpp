@@ -8,6 +8,7 @@
 
 #include "Tetromino.h"
 #include "Point.h"
+#include <iostream>
 
 Tetromino::Tetromino() 
 {
@@ -33,19 +34,19 @@ void Tetromino::setShape(TetShape shape)
 	blockLocs.empty();
 	switch (shape) {
 		case TetShape::SHAPE_S:
-			blockLocs = { Point(0,0), Point(-1,0), Point(0,-1), Point(1,-1) };
+			blockLocs = { Point(0,0), Point(-1,0), Point(0,1), Point(1,1) };
 			color = TetColor::RED;
 			break;
 		case TetShape::SHAPE_Z:
-			blockLocs = { Point(0,0), Point(1,0), Point(0,-1), Point(-1,-1) };
+			blockLocs = { Point(0,0), Point(1,0), Point(0,1), Point(-1,1) };
 			color = TetColor::GREEN;
 			break;
 		case TetShape::SHAPE_L:
-			blockLocs = { Point(0,0), Point(0,-1), Point(0,1), Point(1,1) };
+			blockLocs = { Point(0,0), Point(0,1), Point(0,-1), Point(1,-1) };
 			color = TetColor::ORANGE;
 			break;
 		case TetShape::SHAPE_J:
-			blockLocs = { Point(0,0), Point(0,-1), Point(0,1), Point(-1,1) };
+			blockLocs = { Point(0,0), Point(0,1), Point(0,-1), Point(-1,-1) };
 			color = TetColor::BLUE_DARK;
 			break;
 		case TetShape::SHAPE_O:
@@ -53,11 +54,11 @@ void Tetromino::setShape(TetShape shape)
 			color = TetColor::YELLOW;
 			break;
 		case TetShape::SHAPE_I:
-			blockLocs = { Point(0,0), Point(0,-2), Point(0,-1), Point(0,1) };
+			blockLocs = { Point(0,0), Point(0,2), Point(0,1), Point(0,-1) };
 			color = TetColor::BLUE_LIGHT;
 			break;
 		case TetShape::SHAPE_T:
-			blockLocs = { Point(0,0), Point(-1,0), Point(1,0), Point(0,1) };
+			blockLocs = { Point(0,0), Point(-1,0), Point(1,0), Point(0,-1) };
 			color = TetColor::PURPLE;
 			break;
 
@@ -73,7 +74,15 @@ void Tetromino::setShape(TetShape shape)
 // class that can be used to accomplish a rotation.   
 void Tetromino::rotateCW() 
 {
-	for (int i=0; i<blockLocs.size(); )
+	for (int i = 0; i < blockLocs.size(); i++) {
+		Point block = blockLocs[i];
+		Point temp = blockLocs[i];
+		if (block.getX() != 0 && block.getY() != 0) {
+			temp.swapXY();
+			temp.multiplyY(-1);
+			block = temp;
+		}
+	}
 }
 
 // print a grid to display the current shape     
@@ -94,5 +103,18 @@ void Tetromino::rotateCW()
 //  ....... 
 void Tetromino::printToConsole()
 {
-
+	for (int x = -3; x < 3; x++) {
+		for (int y = 3; y > -3; y--) {
+			bool found = false;
+			for (int i = 0; i < blockLocs.size(); i++) {
+				if (blockLocs[i].getX() == x && blockLocs[i].getY() == y) {
+					std::cout << "x";
+					break;
+				}
+			}
+			if (!found) {
+				std::cout << ".";
+			}
+		}
+	}
 }
