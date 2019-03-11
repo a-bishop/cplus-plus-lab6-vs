@@ -42,11 +42,11 @@ void Tetromino::setShape(TetShape shape)
 			color = TetColor::GREEN;
 			break;
 		case TetShape::SHAPE_L:
-			blockLocs = { Point(0,0), Point(0,1), Point(0,-1), Point(1,-1) };
+			blockLocs = { Point(0,0), Point(0,1), Point(0,-1), Point(1,1) };
 			color = TetColor::ORANGE;
 			break;
 		case TetShape::SHAPE_J:
-			blockLocs = { Point(0,0), Point(0,1), Point(0,-1), Point(-1,-1) };
+			blockLocs = { Point(0,0), Point(0,1), Point(0,-1), Point(-1,1) };
 			color = TetColor::BLUE_DARK;
 			break;
 		case TetShape::SHAPE_O:
